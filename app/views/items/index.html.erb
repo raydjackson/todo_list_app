@@ -1,0 +1,29 @@
+<h1 id= todo_heading> To-do List </h1>
+
+<div id= main_list_table>
+	<table>
+		<tr>
+			<th> Item </th>
+			<th> Author </th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= Author.find(item.author_id).name %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+	</table>
+</div>
+
+<br>
+
+<%= link_to 'New Author', new_author_path %>
+<%= link_to 'New Item', new_item_path %>
+<%= link_to 'Authors', authors_path %>
