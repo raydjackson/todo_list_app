@@ -1,4 +1,4 @@
-<h1 id= todo_heading> To-do List </h1>
+<h1> To-do List </h1>
 
 <div id= main_list_table>
 	<table>
@@ -7,9 +7,8 @@
 			<th> Author </th>
 			<th></th>
 			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<!--<th></th>
+			<th></th>-->
 		</tr>
 		
 <% order = importance_order(@items) %>
@@ -19,9 +18,9 @@
     <td><%= Author.find(item.author_id).name %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, method: :destroy %></td>
-	<td><%= link_to 'Move to top', item, method: :move_to_start %></td>
-	<td><%= link_to 'Move to bottom', item, method: :move_to_end %></td>
+	<!-- Potential functionally to order the To-Do List based on importance.
+				<td><%= link_to 'Move to start', item, collection: :move_to_start %></td>
+				<td><%= link_to 'Move to end', item, collection: :move_to_end %></td> -->
   </tr>
 <% end %>
 	</table>

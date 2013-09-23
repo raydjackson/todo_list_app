@@ -67,6 +67,7 @@ class ItemsController < ApplicationController
     end
   end
   
+  
   def move_to_start
 	@item = Item.find(params[:id])
 	move_to_start(@item.id)

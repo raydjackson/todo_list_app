@@ -2,9 +2,14 @@ FirstApp::Application.routes.draw do
   resources :authors
 
 
-  resources :items
-	root :to => "items#index"
-
+  resources :items do
+	 collection do
+		post "move_to_start"
+		post "move_to_end"
+	 end
+   end
+  
+  	root :to => "items#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
